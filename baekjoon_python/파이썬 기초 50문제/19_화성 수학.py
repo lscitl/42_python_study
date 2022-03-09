@@ -13,4 +13,12 @@ l = int(input())
 
 for i in range(l):
     s = input().split(" ")
-    n = int()
+    n = float(s.pop(0))
+    for j in s:
+        if j == '@':
+            n *= 3
+        elif j == '%':
+            n += 5
+        elif j == '#':
+            n -= 7
+    print("{:.2f}".format(n))
