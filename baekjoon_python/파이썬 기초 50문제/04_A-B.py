@@ -1,4 +1,2 @@
-import sys
-
-a, b = sys.stdin.readline().split()
+a, b = input().split(" ")
 print(int(a) - int(b))
