@@ -24,9 +24,10 @@
 # 출력
 # 입력으로 주어진 단어가 몇 개의 크로아티아 알파벳으로 이루어져 있는지 출력한다.
 
-w = list(input())
+w = input()
 alpha = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 
 for a in alpha:
-    if a in w:
-        w
+    w = w.replace(a, 'a')
+
+print(len(w))
