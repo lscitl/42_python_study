@@ -19,5 +19,5 @@ if cnt_set.count(max) > 1:
     print("?")
 else:
     for c in s_set:
-        if s.count(c) == max :
+        if s.count(c) == max:
             print(c)
