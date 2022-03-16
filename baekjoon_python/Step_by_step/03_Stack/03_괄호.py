@@ -13,10 +13,7 @@
 
 import sys
 
-s = [1, 2]
-
 l = int(sys.stdin.readline())
-
 for i in range(l):
     ps = list(sys.stdin.readline().rstrip())
     f = 1
