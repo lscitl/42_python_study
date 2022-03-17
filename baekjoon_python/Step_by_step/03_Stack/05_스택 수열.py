@@ -16,17 +16,18 @@ import sys
 l = int(sys.stdin.readline())
 r = []
 a = []
+b = []
 for i in range(l):    
-    n = int(sys.stdin.readline())
-    if n != l:
-        a.append(n)
+    a.append(int(sys.stdin.readline()))
+    if a[0] != i + 1:
+        b.append(i + 1)
         r.append('+')
-    elif n == l:
-        a.append(n)
+    else:
+        b.append(i + 1)
         r.append('+')
-        while (len(a) != 0) and (a[-1] == l):
-            l -= 1
-            a.pop()
+        while (len(b) != 0) and (b[-1] == a[0]):
+            a.pop(0)
+            b.pop()
             r.append('-')
 if (len(a) == 0):
     while len(r) != 0:
