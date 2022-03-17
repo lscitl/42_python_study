@@ -18,16 +18,16 @@ a = list(map(int, sys.stdin.readline().split(" ")))
 b = []
 r = []
 max_val = 0
+max_idx = 0
 for i in range(l):
     n = a.pop()
     b.append(n)
     if n > max_val:
         r.append(-1)
         max_val = n
+        max_idx = 1
     else:
-        for c in reversed(b):
-            if c > n:
-                r.append(c)
-                break
+        for j in range(max_idx):
+            b[-(j + 1)] > n
 for i in range(l):
     print(r.pop(), end=' ')
