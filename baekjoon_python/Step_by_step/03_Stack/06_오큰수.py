@@ -15,18 +15,10 @@ import sys
 
 l = int(sys.stdin.readline())
 a = list(map(int, sys.stdin.readline().split(" ")))
-b = []
-r = []
-max_val = 0
+stack = []
+res = [-1] * l
 for i in range(l):
-    n = a.pop()
-    b.insert(0, n)
-    if n > max_val:
-        r.insert(0, -1)
-        max_val = n
-    else:
-        for j in b:
-            if j > n:
-                r.insert(0, j)
-                break
-print(" ".join(map(str, r)))
+    while stack and a[stack[-1]] < a[i]:
+        res[stack.pop()] = a[i]
+    stack.append(i)
+print(*res)
