@@ -18,10 +18,11 @@
 # 출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.
 
 import sys
+from collections import deque
 
 l = int(sys.stdin.readline())
 
-s = []
+s = deque()
 
 def push(s, cmd):
     s.append(int(cmd[-1]))
@@ -30,7 +31,8 @@ def pop(s, cmd):
     if len(s) == 0:
         print(-1)
     else:
-        print(s.pop())
+        print(s.popleft())
+
 def size(s, cmd):
     print(len(s))
 
@@ -40,13 +42,19 @@ def empty(s, cmd):
     else:
         print(0)
 
-def top(s, cmd):
+def front(s, cmd):
+    if len(s) == 0:
+        print(-1)
+    else:
+        print(s[0])
+
+def back(s, cmd):
     if len(s) == 0:
         print(-1)
     else:
         print(s[-1])
 
-dic = {'push':push, 'pop':pop, 'size':size, 'empty':empty, 'top':top}
+dic = {'push':push, 'pop':pop, 'size':size, 'empty':empty, 'front':front, 'back':back}
 
 for i in range(l):
     cmd = sys.stdin.readline().rstrip().split(" ")
