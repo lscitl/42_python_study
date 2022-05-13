@@ -25,5 +25,19 @@ n = int(sys.stdin.readline().strip())
 for i in range(n):
     pri, p_order = map(int, sys.stdin.readline().split(" "))
     d = deque(map(int, sys.stdin.readline().split(" ")))
-print(pri)
-print(d)
+    for j in range(pri):
+        while d[0] != max(d):
+            d.append(d.popleft())
+            if p_order == 0:
+                p_order = pri - j - 1
+            else:
+                p_order -= 1
+        if p_order == 0:
+            print(j + 1)
+            break
+        else:
+            d.popleft()
+            if p_order == 0:
+                p_order = pri - j - 1
+            else:
+                p_order -= 1
